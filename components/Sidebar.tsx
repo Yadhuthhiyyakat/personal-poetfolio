@@ -66,7 +66,7 @@ const Sidebar: React.FC<SidebarProps> = ({ onToggleAppLauncher }) => {
       <ul className="space-y-4 flex-grow"> {/* flex-grow to push last item to bottom */}
         {/* Home / Files (Nautilus) icon - Functional */}
         <SidebarItem
-          icon={<img src="public/images/icons/Folder.png" alt="Home Icon" className="w-10 h-10" />}
+          icon={<img src="/images/logos/Folder.png" alt="Home Icon" className="w-10 h-10" />}
           label="Home"
           path="/"
           isActive={currentPath === '' || currentPath === '/'}
