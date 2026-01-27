@@ -22,7 +22,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
 
   return (
     <div className="flex h-screen bg-gray-800 text-gray-100">
-      <Navbar iconSrc="app/assets/ubuntu.png" /> {/* Top Bar */}
+      <Navbar iconSrc="/images/logos/ubuntu.png" /> {/* Top Bar */}
       <Sidebar onToggleAppLauncher={toggleAppLauncher} /> {/* Left Dock, pass toggle function */}
       
       {/* Main content area, offset by Navbar height and Sidebar width */}

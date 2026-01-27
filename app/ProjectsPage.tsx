@@ -21,7 +21,7 @@ const VscodeFileItem: React.FC<VscodeFileItemProps> = ({ projectTitle, projectId
       onClick={() => onClick(projectId)}
     >
       {/* Replaced SVG with PNG image and increased size */}
-      <img src="app/assets/Folder.png" alt="Folder Icon" className="h-6 w-6 mr-2 flex-shrink-0" />
+      <img src="/images/logos/Folder.png" alt="Folder Icon" className="h-6 w-6 mr-2 flex-shrink-0" />
       <span className="truncate">{projectTitle}</span>
     </button>
   );

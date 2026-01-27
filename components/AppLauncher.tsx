@@ -1,6 +1,5 @@
 
 import React, { useEffect, useRef } from 'react';
-import { SidebarItemIcon } from './Sidebar'; // Re-use icon definitions from Sidebar if available
 
 interface AppLauncherProps {
   isOpen: boolean;
@@ -78,7 +77,7 @@ const AppLauncher: React.FC<AppLauncherProps> = ({ isOpen, onClose, onNavigateAn
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 max-w-4xl w-full">
         <LauncherApp
           icon={
-            <img src="app/assets/terminal.webp" alt="About Icon" className="w-12 h-12" />
+            <img src="/images/logos/terminal.webp" alt="About Icon" className="w-12 h-12" />
           }
           label="About"
           path="/about"
@@ -86,7 +85,7 @@ const AppLauncher: React.FC<AppLauncherProps> = ({ isOpen, onClose, onNavigateAn
         />
         <LauncherApp
           icon={
-            <img src="app/assets/VS.png" alt="Projects Icon" className="w-12 h-12" />
+            <img src="/images/logos/VS.png" alt="Projects Icon" className="w-12 h-12" />
           }
           label="Projects"
           path="/projects"
@@ -94,7 +93,7 @@ const AppLauncher: React.FC<AppLauncherProps> = ({ isOpen, onClose, onNavigateAn
         />
         <LauncherApp
           icon={
-            <img src="app/assets/mail.png" alt="Contact Icon" className="w-12 h-12" />
+            <img src="/images/logos/mail.png" alt="Contact Icon" className="w-12 h-12" />
           }
           label="Contact"
           path="/contact"

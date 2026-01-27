@@ -1,6 +1,5 @@
 
 import React from 'react';
-
 // Exporting SidebarItemIcon for potential re-use in AppLauncher
 export interface SidebarItemIcon {
   icon: React.ReactNode;
@@ -67,7 +66,7 @@ const Sidebar: React.FC<SidebarProps> = ({ onToggleAppLauncher }) => {
       <ul className="space-y-4 flex-grow"> {/* flex-grow to push last item to bottom */}
         {/* Home / Files (Nautilus) icon - Functional */}
         <SidebarItem
-          icon={<img src="app/assets/Folder.png" alt="Home Icon" className="w-10 h-10" />}
+          icon={<img src="public/images/Folder.png" alt="Home Icon" className="w-10 h-10" />}
           label="Home"
           path="/"
           isActive={currentPath === '' || currentPath === '/'}
@@ -77,7 +76,7 @@ const Sidebar: React.FC<SidebarProps> = ({ onToggleAppLauncher }) => {
 
         {/* About / Terminal Icon */}
         <SidebarItem
-          icon={<img src="app/assets/terminal.webp" alt="About Icon" className="w-10 h-10" />}
+          icon={<img src="/images/logos/terminal.webp" alt="About Icon" className="w-10 h-10" />}
           label="About"
           path="/about"
           isActive={currentPath === 'about'}
@@ -86,7 +85,7 @@ const Sidebar: React.FC<SidebarProps> = ({ onToggleAppLauncher }) => {
 
         {/* Projects / VS Code (Functional) */}
         <SidebarItem
-          icon={<img src="app/assets/VS.png" alt="Projects Icon" className="w-10 h-10" />}
+          icon={<img src="/images/logos/VS.png" alt="Projects Icon" className="w-10 h-10" />}
           label="Projects"
           path="/projects"
           isActive={currentPath === 'projects'}
@@ -95,7 +94,7 @@ const Sidebar: React.FC<SidebarProps> = ({ onToggleAppLauncher }) => {
 
         {/* Contact / Gmail Icon */}
         <SidebarItem
-          icon={<img src="app/assets/mail.png" alt="Contact Icon" className="w-10 h-10" />}
+          icon={<img src="/images/logos/mail.png" alt="Contact Icon" className="w-10 h-10" />}
           label="Contact"
           path="/contact"
           isActive={currentPath === 'contact'}
@@ -105,7 +104,7 @@ const Sidebar: React.FC<SidebarProps> = ({ onToggleAppLauncher }) => {
       {/* Show Applications icon at the very bottom */}
       <div className="mt-auto pb-4"> {/* Push to bottom and add some padding */}
         <SidebarItem
-          icon={<img src="app/assets/ubuntu.png" alt="App Launcher Icon" className="w-10 h-10" />}
+          icon={<img src="/images/logos/ubuntu.png" alt="App Launcher Icon" className="w-10 h-10" />}
           label="Show Applications"
           onClick={onToggleAppLauncher} // Call the toggle function
         />

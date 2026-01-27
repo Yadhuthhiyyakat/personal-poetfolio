@@ -1,6 +1,5 @@
 
 import React, { useState, useEffect, useRef } from 'react';
-
 // Use React.memo for performance optimization
 const TerminalLine: React.FC<{ text: string; delay?: number; isCommand?: boolean; showInitialBlink?: boolean }> = React.memo(({ text, isCommand = false, showInitialBlink = false }) => {
   // All animation logic (useState, useEffect, useRef for timers) has been removed.
@@ -23,7 +22,7 @@ const AboutSection: React.FC = () => {
   const finalPromptCalculatedDelayRef = useRef(baseDelay); // This ref is now technically unused but kept for compatibility if animation were to be re-introduced
 
   const name = "John Doe"; // Your name
-  const photoUrl = "/profile.jpg"; // Path to your profile picture
+  const photoUrl = "/images/yadhu.jpeg"; // Path to your profile picture
   const subtitle = "Web Developer & Mobile Developer"; // Your subtitle
 
   useEffect(() => {

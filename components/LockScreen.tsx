@@ -1,6 +1,5 @@
 
 import React, { useEffect, useRef } from 'react';
-
 interface LockScreenProps {
   onUnlock: () => void;
   name: string;
@@ -9,7 +8,7 @@ interface LockScreenProps {
 }
 
 const LockScreen: React.FC<LockScreenProps> = ({ onUnlock, name, photoUrl, subtitle }) => {
-  const wallpaperUrl = 'https://raw.githubusercontent.com/mdazlaansaleem/ubuntu-portfolio/main/original-image.jpg';
+  const wallpaperUrl = '/images/wallpaper.jpg'; // Use the imported local wallpaper asset
   const instructionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {

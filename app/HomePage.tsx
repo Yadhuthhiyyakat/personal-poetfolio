@@ -3,7 +3,7 @@ import React, { useState, useRef } from 'react';
 import { projects as initialProjects } from '../data/projects'; // Import your project data
 
 const HomePage: React.FC = () => {
-  const wallpaperUrl = 'app/assets/wallpaper.jpg'; // Using the full provided image as wallpaper
+  const wallpaperUrl = '/images/wallpaper.jpg'; // Using the imported wallpaper asset
   const [orderedProjects, setOrderedProjects] = useState(initialProjects);
 
   // Refs to keep track of the dragged and target items
@@ -20,7 +20,7 @@ const HomePage: React.FC = () => {
   };
 
   const FolderIcon: React.FC<{ isDragging?: boolean }> = ({ isDragging }) => (
-    <img src="app/assets/Folder.png" alt="Folder Icon" className="w-16 h-16 transition-transform duration-200" />
+    <img src="/images/logos/Folder.png" alt="Folder Icon" className="w-16 h-16 transition-transform duration-200" />
   );
 
   // Drag & Drop Handlers

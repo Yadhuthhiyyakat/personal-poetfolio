@@ -6,7 +6,6 @@ import AboutPage from './app/AboutPage';
 import ProjectsPage from './app/ProjectsPage';
 import ContactPage from './app/ContactPage';
 // ProjectDetailPage is no longer directly routed as its functionality is integrated into ProjectsPage
-import LockScreen from './components/LockScreen'; // Import the new LockScreen component
 
 // Define a more robust route type that can include a projectId
 type AppRoute =
@@ -29,6 +28,7 @@ const getPageFromHash = (): AppRoute => {
   return { type: 'home' };
 };
 
+import LockScreen from './components/LockScreen'; // Import the new LockScreen component
 const App: React.FC = () => {
   const [currentRoute, setCurrentRoute] = useState<AppRoute>(getPageFromHash());
   const [showLockScreen, setShowLockScreen] = useState(true); // State to control lock screen visibility
@@ -69,7 +69,7 @@ const App: React.FC = () => {
         <LockScreen
           onUnlock={handleUnlock}
           name="YadhuKrishna T M" // Replace with your name
-          photoUrl="app/assets/yadhu.jpeg" // Path to your profile picture
+          photoUrl="/images/yadhu.jpeg" // Path to your profile picture
           subtitle="Web Developer & Mobile Developer"
         />
       ) : (
