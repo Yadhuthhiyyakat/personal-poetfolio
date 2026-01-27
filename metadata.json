@@ -1,0 +1,5 @@
+{
+  "name": "Personal Portfolio",
+  "description": "A personal portfolio website showcasing projects and providing contact information. This application is implemented as a React Single-Page Application (SPA) structured to mimic a Next.js app directory for organization, rather than a full Next.js framework.",
+  "requestFramePermissions": []
+}
