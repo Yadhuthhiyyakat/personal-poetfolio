@@ -62,8 +62,8 @@ const AboutSection: React.FC = () => {
     addLine(`${name} - ${subtitle}`);
 
     addLine(prompt + 'cat about.txt', true);
-    addLine('Hello! I\'m John Doe, a passionate Frontend Developer with a knack for creating dynamic and intuitive user interfaces. With 5 years of experience, I specialize in crafting engaging web applications using modern JavaScript frameworks and libraries.');
-    addLine('My expertise lies in React, TypeScript, and Tailwind CSS, allowing me to build robust, scalable, and visually appealing web solutions. I\'m always eager to learn new technologies and improve my skills to deliver the best possible user experience.');
+    addLine('Hello! I\'m YadhuKrishna T M, I am a versatile Full-Stack Developer and Computer Science Engineer specializing in building comprehensive digital solutions across web and mobile platforms. I focus on creating seamless, high-performance applications by bridging the gap between intuitive user interfaces—both in the browser and on handheld devices—and scalable backend architecture.');
+    addLine('My expertise lies in React, TypeScript, and Tailwind CSS for web solutions, alongside Flutter and Kotlin for mobile development, allowing me to build robust, scalable, and visually appealing applications across all platforms. I\'m always eager to learn new technologies and improve my skills to deliver the best possible user experience.');
 
     addLine(prompt + 'ls -F skills/', true);
     addLine(`./React.js/
@@ -71,9 +71,11 @@ const AboutSection: React.FC = () => {
 ./JavaScript_(ES6+)/
 ./Tailwind_CSS/
 ./HTML5_&_CSS3/
-./Node.js/
+./Next.js/
 ./Git_&_GitHub/
-./Responsive_Design/`);
+./Responsive_Design/
+./Kotlin/
+./Flutter/`);
 
     addLine(prompt + 'cd projects', true);
     addLine('You can find more details in the projects directory.');
@@ -81,8 +83,11 @@ const AboutSection: React.FC = () => {
 
     addLine(prompt + 'cat contact.txt', true);
     addLine('Feel free to reach out via:');
-    addLine(`Email: your.email@example.com
-WhatsApp: 123-456-7890`);
+    addLine(`Email: yadhuthiyakkat@gmail.com
+WhatsApp: +91 9778256341
+Phone: +91 9778256341,+91 9497296976
+GitHub: https://github.com/Yadhuthhiyyakat
+LinkedIn: https://www.linkedin.com/in/yadhukrishna-tm-8b179b330/`);
 
     setContentLines(generatedLines);
     finalPromptCalculatedDelayRef.current = currentDelay; // Store the final calculated delay
