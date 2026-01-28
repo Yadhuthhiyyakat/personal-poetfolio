@@ -96,7 +96,7 @@ LinkedIn: https://www.linkedin.com/in/yadhukrishna-tm-8b179b330/`);
   return (
     <div className="bg-gray-900 text-green-400 font-mono text-sm p-4 h-full overflow-y-auto rounded-b-xl relative">
       {!hasUnlocked && (
-        <div className="flex flex-col items-center justify-center h-full text-center p-4">
+        <div className="flex flex-col items-center justify-center h-full text-center p-4 sm:p-8">
           <img
             src={photoUrl}
             alt={name}

@@ -80,7 +80,7 @@ const HomePage: React.FC = () => {
 
   return (
     <div
-      className="w-full h-full bg-cover bg-center p-8 overflow-y-auto"
+      className="w-full h-full bg-cover bg-center p-4 sm:p-8 overflow-y-auto"
       style={{ backgroundImage: `url(${wallpaperUrl})` }}
       onDrop={handleDrop} // Allow dropping on the container if not dropped on another item
       onDragOver={handleDragOver}

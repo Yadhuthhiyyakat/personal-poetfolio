@@ -53,7 +53,7 @@ const LockScreen: React.FC<LockScreenProps> = ({ onUnlock, name, photoUrl, subti
         <h1 className="text-4xl md:text-6xl font-extrabold mb-2 text-shadow-lg">
           {name}
         </h1>
-        <p className="text-xl md:text-2xl font-light text-gray-200 mb-12 text-shadow-md">
+        <p className="text-lg md:text-2xl font-light text-gray-200 mb-12 text-shadow-md">
           {subtitle}
         </p>
         <div ref={instructionRef} className="text-lg md:text-xl text-gray-300 font-medium tracking-wide">

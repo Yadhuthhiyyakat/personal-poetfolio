@@ -75,7 +75,7 @@ const ProjectsPage: React.FC<{ projectId?: string }> = ({ projectId }) => {
   return (
     /* h-screen makes the container exactly the height of the browser window */
     <div className="h-screen w-screen flex flex-col overflow-hidden bg-black">
-      <WindowFrame title="Projects - Visual Studio Code" className="w-full h-full" iconSrc="/images/logos/VS.png">
+      <WindowFrame title="Projects - Visual Studio Code" className="w-full h-full flex-grow" iconSrc="/images/logos/VS.png">
         <div className="flex h-full bg-[#1e1e1e] overflow-hidden">
           
           {/* VS Code Sidebar */}

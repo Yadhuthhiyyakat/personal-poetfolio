@@ -25,7 +25,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       <Navbar iconSrc="/images/logos/ubuntu.png" /> {/* Top Bar */}
       <Sidebar onToggleAppLauncher={toggleAppLauncher} /> {/* Left Dock, pass toggle function */}
       
-      {/* Main content area, offset by Navbar height and Sidebar width */}
+      {/* Main content area, offset by Navbar height and Sidebar width on medium and larger screens */}
       <main className="flex-grow pt-8 md:ml-20 overflow-auto">
         {children}
       </main>

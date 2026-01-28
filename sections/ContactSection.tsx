@@ -18,7 +18,7 @@ const MailboxSidebar: React.FC<MailboxSidebarProps> = ({ onComposeClick, activeF
   ];
 
   return (
-    <div className="w-48 bg-gray-800 p-4 border-r border-gray-700 flex flex-col">
+    <div className="w-full md:w-48 bg-gray-800 p-4 border-b md:border-b-0 md:border-r border-gray-700 flex flex-col h-1/3 md:h-full">
       <Button
         variant="primary"
         size="md"
@@ -74,7 +74,7 @@ const EmailCard: React.FC<EmailCardProps> = ({ sender, subject, snippet, date, o
   );
 };
 
-interface MailContentAreaProps {
+interface MailContentAreaProps { // Renamed to MailContentAreaProps for clarity
   emailAddress: string;
   whatsappNumber: string;
   onComposeClick: () => void;
@@ -85,7 +85,7 @@ const MailContentArea: React.FC<MailContentAreaProps> = ({ emailAddress, whatsap
   const todayDate = new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
 
   return (
-    <div className="flex-grow bg-gray-50 p-6 flex flex-col">
+    <div className="flex-grow bg-gray-50 p-4 md:p-6 flex flex-col">
       <h2 className="text-2xl font-bold text-gray-900 mb-6">Inbox</h2>
       <div className="flex-grow overflow-y-auto pr-2"> {/* Added pr-2 for scrollbar space */}
         <EmailCard
@@ -120,7 +120,7 @@ const ContactSection: React.FC = () => {
   };
 
   return (
-    <div className="flex h-full bg-gray-100 rounded-b-xl">
+    <div className="flex flex-col md:flex-row h-full bg-gray-100 rounded-b-xl">
       <MailboxSidebar
         onComposeClick={handleComposeClick}
         activeFolder={activeFolder}

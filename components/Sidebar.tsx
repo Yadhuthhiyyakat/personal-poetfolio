@@ -62,7 +62,7 @@ const Sidebar: React.FC<SidebarProps> = ({ onToggleAppLauncher }) => {
   };
 
   return (
-    <aside className="fixed top-0 left-0 h-screen w-28 bg-gray-900 bg-opacity-50 backdrop-blur-sm z-40 hidden md:flex flex-col items-center py-4 pt-8"> {/* Adjusted pt-8 for Navbar height */}
+    <aside className="fixed top-0 left-0 h-screen w-20 sm:w-28 bg-gray-900 bg-opacity-50 backdrop-blur-sm z-40 hidden md:flex flex-col items-center py-4 pt-8"> {/* Adjusted pt-8 for Navbar height, made width responsive */}
       <ul className="space-y-4 flex-grow"> {/* flex-grow to push last item to bottom */}
         {/* Home / Files (Nautilus) icon - Functional */}
         <SidebarItem
