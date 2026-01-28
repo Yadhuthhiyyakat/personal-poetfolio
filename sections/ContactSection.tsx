@@ -81,7 +81,7 @@ interface MailContentAreaProps {
 }
 
 const MailContentArea: React.FC<MailContentAreaProps> = ({ emailAddress, whatsappNumber, onComposeClick }) => {
-  const whatsappMessage = encodeURIComponent("Hello John, I saw your portfolio and wanted to get in touch!");
+  const whatsappMessage = encodeURIComponent("Hello Yadhu, I saw your portfolio and wanted to get in touch!");
   const todayDate = new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
 
   return (
@@ -110,8 +110,8 @@ const MailContentArea: React.FC<MailContentAreaProps> = ({ emailAddress, whatsap
 
 
 const ContactSection: React.FC = () => {
-  const emailAddress = 'your.email@example.com'; // Replace with your actual email
-  const whatsappNumber = '1234567890'; // Replace with your actual WhatsApp number
+  const emailAddress = 'yadhuthiyakkat@gmail.com'; // Replace with your actual email
+  const whatsappNumber = '9778256341'; // Replace with your actual WhatsApp number
 
   const [activeFolder, setActiveFolder] = useState('Inbox');
 
