@@ -4,57 +4,85 @@ import { Project } from '../types';
 export const projects: Project[] = [
   {
     id: '1',
-    title: 'E-commerce Storefront',
-    description: 'A full-stack e-commerce platform built with React, Node.js, and MongoDB. Features include user authentication, product listings, shopping cart, and secure checkout.',
-    githubLink: 'https://github.com/yourusername/ecommerce-storefront',
-    liveLink: 'https://picsum.photos/400/300?project=ecommerce',
-    image: '/projects/ecommerce.jpg', // Corrected to reference from root
+    title: 'Mucomics-Hub',
+    description: 'A full-stack comic platform built with React, Next.js, and Supabase. Features include user authentication, Comic listings, and Chatroom.Sorry the Github Repository is Private.',
+   githubLink: '',
+    liveLink: 'https://mucomics-hub.vercel.app/',
+    image: 'public/images/mucomics.png', // Corrected to reference from root
     techStack: [
+      { category: 'Framework', items: ['Next.js'] },
       { category: 'Frontend', items: ['React', 'TypeScript', 'Tailwind CSS'] },
-      { category: 'Backend', items: ['Node.js', 'Express.js'] },
-      { category: 'Database', items: ['MongoDB'] },
-      { category: 'Deployment', items: ['Vercel', 'Heroku'] },
+      { category: 'Backend', items: ['Next.js'] },
+      { category: 'Database', items: ['Supabase'] },
+      { category: 'Deployment', items: ['Vercel'] },
     ],
   },
   {
     id: '2',
-    title: 'Task Management App',
-    description: 'A minimalist task management application. Users can create, update, delete, and filter tasks. Implemented with React and a local storage API.',
-    githubLink: 'https://github.com/yourusername/task-management-app',
-    liveLink: 'https://picsum.photos/400/300?project=task-manager',
-    image: '/projects/task-manager.jpg', // Corrected to reference from root
+    title: 'Version Control Enabled Note',
+    description: 'A Version Control Enabled Note Taking Website. Users can create, update, delete, and view versions of notes. Implemented with React and a local storage API.Sorry the Github Repository is Private.',
+    githubLink: '',
+    liveLink: 'https://collaborative-note-app-orpin.vercel.app/',
+    image: 'public/images/note.png', // Corrected to reference from root
     techStack: [
-      { category: 'Frontend', items: ['React', 'JavaScript', 'CSS Modules'] },
+      { category: 'Framework', items: ['Next.js'] },
+      { category: 'Frontend', items: ['React'] },
       { category: 'Data Storage', items: ['Local Storage API'] },
-      { category: 'Tools', items: ['Vite', 'Git'] },
+      { category: 'Deployment', items: ['Vercel'] },
     ],
   },
   {
     id: '3',
     title: 'Weather Dashboard',
     description: 'A responsive weather dashboard fetching real-time weather data using a third-party API. Displays current weather and a 5-day forecast for any city.',
-    githubLink: 'https://github.com/yourusername/weather-dashboard',
-    liveLink: 'https://picsum.photos/400/300?project=weather-app',
-    image: '/projects/weather-dashboard.jpg', // Corrected to reference from root
+    githubLink: 'https://github.com/Yadhuthhiyyakat/weather_react',
+    liveLink: 'https://yadhuthhiyyakat.github.io/weather_react/',
+    image: 'public/images/weather.png', // Corrected to reference from root
     techStack: [
-      { category: 'Frontend', items: ['HTML5', 'CSS3', 'JavaScript'] },
+      { category: 'Frontend', items: ['React.js'] },
       { category: 'API', items: ['OpenWeatherMap API'] },
-      { category: 'Bundler', items: ['Webpack'] },
-      { category: 'Deployment', items: ['Netlify'] },
+      { category: 'Deployment', items: ['Github Pages'] },
     ],
   },
   {
     id: '4',
-    title: 'Personal Blog Platform',
-    description: 'A simple blogging platform allowing users to publish articles. Features include rich text editing, tag management, and search functionality.',
-    githubLink: 'https://github.com/yourusername/blog-platform',
-    liveLink: 'https://picsum.photos/400/300?project=blog',
-    image: '/projects/blog-platform.jpg', // Corrected to reference from root
+    title: 'Chat Application',
+    description: 'A simple Chat Application allowing users to chat in real-time. Features include rich texting, user authentication,Deletion of messages.',
+    githubLink: 'https://github.com/Yadhuthhiyyakat/chatapp_flutter',
+    liveLink: '',
+    image: 'public/images/chat.jpeg', // Corrected to reference from root
     techStack: [
-      { category: 'Frontend', items: ['Vue.js', 'SCSS'] },
+      { category: 'Framework', items: ['Flutter'] },
+      { category: 'Frontend', items: ['Dart'] },
       { category: 'Backend', items: ['Firebase Functions'] },
       { category: 'Database', items: ['Firestore'] },
       { category: 'Authentication', items: ['Firebase Auth'] },
+    ],
+  },
+  {
+    id: '5',
+    title: 'Movie Watchlist Application',
+    description: 'A simple Movie Watchlist Application allowing users to add movies to their watchlist in real-time. Features include user authentication.',
+    githubLink: 'https://github.com/Yadhuthhiyyakat/movielistapp_flutter',
+    liveLink: '',
+    image: 'public/images/movie.jpeg', // Corrected to reference from root
+    techStack: [
+      { category: 'Framework', items: ['Flutter'] },
+      { category: 'Frontend', items: ['Dart'] },
+      { category: 'Database', items: ['Firestore'] },
+      { category: 'Authentication', items: ['Firebase Auth'] },
+    ],
+  },
+  {
+    id: '6',
+    title: 'Budget Tracker Website',
+    description: 'A simple Budget Tracker Website allowing users to track their expenses and income in real-time. Implemented with React and a local storage API.',
+    githubLink: 'https://github.com/Yadhuthhiyyakat/Budget-app-react',
+    liveLink: 'https://budget-app-react-one.vercel.app/',
+    image: 'public/images/budget.png', // Corrected to reference from root
+    techStack: [
+      { category: 'Frontend', items: ['React'] },
+      { category: 'Data Storage', items: ['Local Storage API'] },
     ],
   },
 ];

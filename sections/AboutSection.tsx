@@ -16,12 +16,12 @@ const TerminalLine: React.FC<{ text: string; delay?: number; isCommand?: boolean
 const AboutSection: React.FC = () => {
   const [hasUnlocked, setHasUnlocked] = useState(false);
   const [contentLines, setContentLines] = useState<Array<{ text: string; isCommand?: boolean; delay?: number; showInitialBlink?: boolean }>>([]);
-  const prompt = 'user@ubuntu-portfolio:~$ ';
+  const prompt = 'yadhukrishna-t-m@ubuntu-portfolio:~$ ';
   const baseDelay = 500;
   // Use a ref to store the last calculated delay for the final prompt
   const finalPromptCalculatedDelayRef = useRef(baseDelay); // This ref is now technically unused but kept for compatibility if animation were to be re-introduced
 
-  const name = "John Doe"; // Your name
+  const name = "YadhuKrishna T M"; // Your name
   const photoUrl = "/images/yadhu.jpeg"; // Path to your profile picture
   const subtitle = "Web Developer & Mobile Developer"; // Your subtitle
 
