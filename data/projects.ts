@@ -1,5 +1,11 @@
 
 import { Project } from '../types';
+import mucomicsImage from '../public/images/mucomics.png';
+import noteImage from '../public/images/note.png';
+import weatherImage from '../public/images/weather.png';
+import chatImage from '../public/images/chat.jpeg';
+import movieImage from '../public/images/movie.jpeg';
+import budgetImage from '../public/images/budget.png';
 
 export const projects: Project[] = [
   {
@@ -8,7 +14,7 @@ export const projects: Project[] = [
     description: 'A full-stack comic platform built with React, Next.js, and Supabase. Features include user authentication, Comic listings, and Chatroom.Sorry the Github Repository is Private.',
    githubLink: '',
     liveLink: 'https://mucomics-hub.vercel.app/',
-    image: 'public/images/mucomics.png', // Corrected to reference from root
+    image: mucomicsImage,
     techStack: [
       { category: 'Framework', items: ['Next.js'] },
       { category: 'Frontend', items: ['React', 'TypeScript', 'Tailwind CSS'] },
@@ -23,7 +29,7 @@ export const projects: Project[] = [
     description: 'A Version Control Enabled Note Taking Website. Users can create, update, delete, and view versions of notes. Implemented with React and a local storage API.Sorry the Github Repository is Private.',
     githubLink: '',
     liveLink: 'https://collaborative-note-app-orpin.vercel.app/',
-    image: 'public/images/note.png', // Corrected to reference from root
+    image: noteImage,
     techStack: [
       { category: 'Framework', items: ['Next.js'] },
       { category: 'Frontend', items: ['React'] },
@@ -37,7 +43,7 @@ export const projects: Project[] = [
     description: 'A responsive weather dashboard fetching real-time weather data using a third-party API. Displays current weather and a 5-day forecast for any city.',
     githubLink: 'https://github.com/Yadhuthhiyyakat/weather_react',
     liveLink: 'https://yadhuthhiyyakat.github.io/weather_react/',
-    image: 'public/images/weather.png', // Corrected to reference from root
+    image: weatherImage,
     techStack: [
       { category: 'Frontend', items: ['React.js'] },
       { category: 'API', items: ['OpenWeatherMap API'] },
@@ -50,7 +56,7 @@ export const projects: Project[] = [
     description: 'A simple Chat Application allowing users to chat in real-time. Features include rich texting, user authentication,Deletion of messages.',
     githubLink: 'https://github.com/Yadhuthhiyyakat/chatapp_flutter',
     liveLink: '',
-    image: 'public/images/chat.jpeg', // Corrected to reference from root
+    image: chatImage,
     techStack: [
       { category: 'Framework', items: ['Flutter'] },
       { category: 'Frontend', items: ['Dart'] },
@@ -65,7 +71,7 @@ export const projects: Project[] = [
     description: 'A simple Movie Watchlist Application allowing users to add movies to their watchlist in real-time. Features include user authentication.',
     githubLink: 'https://github.com/Yadhuthhiyyakat/movielistapp_flutter',
     liveLink: '',
-    image: 'public/images/movie.jpeg', // Corrected to reference from root
+    image: movieImage,
     techStack: [
       { category: 'Framework', items: ['Flutter'] },
       { category: 'Frontend', items: ['Dart'] },
@@ -79,7 +85,7 @@ export const projects: Project[] = [
     description: 'A simple Budget Tracker Website allowing users to track their expenses and income in real-time. Implemented with React and a local storage API.',
     githubLink: 'https://github.com/Yadhuthhiyyakat/Budget-app-react',
     liveLink: 'https://budget-app-react-one.vercel.app/',
-    image: 'public/images/budget.png', // Corrected to reference from root
+    image: budgetImage,
     techStack: [
       { category: 'Frontend', items: ['React'] },
       { category: 'Data Storage', items: ['Local Storage API'] },
