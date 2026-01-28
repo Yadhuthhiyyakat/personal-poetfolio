@@ -6,6 +6,8 @@ import weatherImage from '../public/images/weather.png';
 import chatImage from '../public/images/chat.jpeg';
 import movieImage from '../public/images/movie.jpeg';
 import budgetImage from '../public/images/budget.png';
+import clockImage from '../public/images/clock.jpeg';
+import aiImage from '../public/images/ai.jpeg';
 
 export const projects: Project[] = [
   {
@@ -89,6 +91,29 @@ export const projects: Project[] = [
     techStack: [
       { category: 'Frontend', items: ['React'] },
       { category: 'Data Storage', items: ['Local Storage API'] },
+    ],
+  },
+  {
+    id: '7',
+    title: 'Clock Application',
+    description: 'A simple Clock Application allowing users to view the current time in real-time. Implemented with Kotlin and features includes alarm,timer,stopwatch.',
+    githubLink: 'https://github.com/Yadhuthhiyyakat/clock_kotlin',
+    liveLink: '',
+    image: clockImage,
+    techStack: [
+      { category: 'Frontend', items: ['Kotlin'] },
+    ],
+  },
+  {
+    id: '8',
+    title: 'Commersca AI Chatbot',
+    description: 'An AI-powered chatbot for Finance platforms that assists customers with personal finance . Built using Kotlin and integrating Google Gemini API to act as a backend.',
+    githubLink: 'https://github.com/Yadhuthhiyyakat/CommerSca-AI-App',
+    liveLink: '',
+    image: aiImage,
+    techStack: [
+      { category: 'Frontend', items: ['Kotlin'] },
+      { category: 'API', items: ['Gemini API'] },
     ],
   },
 ];
