@@ -95,7 +95,7 @@ LinkedIn: https://www.linkedin.com/in/yadhukrishna-tm-8b179b330/`);
 
   return (
     <div className="bg-gray-900 text-green-400 font-mono text-sm p-4 h-full overflow-y-auto rounded-b-xl relative">
-      {!hasUnlocked && (
+      {!hasUnlocked && ( // This entire block acts as the "lock screen" for the About section
         <div className="flex flex-col items-center justify-center h-full text-center p-4 sm:p-8">
           <img
             src={photoUrl}
@@ -108,8 +108,11 @@ LinkedIn: https://www.linkedin.com/in/yadhukrishna-tm-8b179b330/`);
           <p className="text-lg font-light text-gray-300 mb-6">
             {subtitle}
           </p>
-          <div className="text-lg md:text-xl text-gray-300 font-medium tracking-wide">
-            {prompt} Press <span className="font-bold text-[#E95420]">ENTER</span> to view my details
+          <div
+            className="text-lg md:text-xl text-gray-300 font-medium tracking-wide cursor-pointer"
+            onClick={() => setHasUnlocked(true)} // Unlock on click/tap
+          >
+            {prompt} Press <span className="font-bold text-[#E95420]">ENTER</span> or <span className="font-bold text-[#E95420]">TAP</span> to view my details
             <span className="animate-blink">█</span>
           </div>
         </div>
