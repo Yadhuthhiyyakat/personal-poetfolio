@@ -38,6 +38,7 @@ const LockScreen: React.FC<LockScreenProps> = ({ onUnlock, name, photoUrl, subti
     <div
       className="fixed inset-0 z-50 flex items-center justify-center bg-cover bg-center text-white"
       style={{ backgroundImage: `url(${wallpaperUrl})` }}
+      onClick={onUnlock} // Add onClick to unlock on touch/click
       aria-live="polite"
       aria-atomic="true"
     >
