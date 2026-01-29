@@ -1,4 +1,5 @@
 
+
 import React, { useState, useRef } from 'react';
 import { projects as initialProjects } from '../data/projects'; // Import your project data
 
@@ -36,7 +37,7 @@ const HomePage: React.FC = () => {
   };
 
   const handleDragLeave = (e: React.DragEvent) => {
-    e.currentTarget.classList.remove('border-2', 'border-dashed', 'border-[#E95420]'); // Remove visual feedback
+    e.currentTarget.classList.remove('border-2', 'border-dashed', 'border-[#581D3D]'); // Remove visual feedback
   };
 
   const handleDragOver = (e: React.DragEvent) => {
