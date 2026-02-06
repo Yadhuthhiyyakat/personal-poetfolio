@@ -1,6 +1,7 @@
 
 import React from 'react';
 import SectionHeading from '../components/SectionHeading';
+import Button from '../components/Button';
 
 const ProfessionalAboutSection: React.FC = () => {
   const name = "John Doe"; // Your name
@@ -28,6 +29,14 @@ const ProfessionalAboutSection: React.FC = () => {
           <p className="text-gray-700 text-lg leading-relaxed animate-fade-in animate-once animate-delay-600 animate-duration-700">
             My expertise lies in React, TypeScript, and Tailwind CSS, allowing me to build robust, scalable, and visually appealing web solutions. I'm always eager to learn new technologies and improve my skills to deliver the best possible user experience.
           </p>
+          <div className="mt-8 flex justify-center md:justify-start animate-fade-in animate-once animate-delay-800 animate-duration-700">
+            <Button
+              asLink
+              href="https://drive.google.com/file/d/1npwSZqG9qwIFlq-ylmGy6gv1jHZynT7E/view?usp=drive_link" // Link to local resume.pdf in the public folder
+              target="_blank"
+              variant="primary"
+            >Download Resume</Button>
+          </div>
         </div>
       </div>
     </section>

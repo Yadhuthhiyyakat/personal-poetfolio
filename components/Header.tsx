@@ -22,7 +22,7 @@ const Header: React.FC<HeaderProps> = ({ toggleView, currentView }) => {
     <header className="bg-white shadow-md py-4">
       <div className="container mx-auto flex justify-between items-center px-4">
         <div className="text-2xl font-bold text-gray-900">
-          <a href="#/" className="hover:text-[#E95420] transition-colors">Your Name</a> {/* Replace with your name */}
+          <a href="#/" className="hover:text-[#E95420] transition-colors">YadhuKrishna T M</a> {/* Replace with your name */}
         </div>
         <nav className="hidden md:flex space-x-6 items-center">
           {navLinks.map((link) => (

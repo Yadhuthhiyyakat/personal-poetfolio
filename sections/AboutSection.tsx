@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import Button from '../components/Button'; // Import the Button component
 
 // Use React.memo for performance optimization
 const TerminalLine: React.FC<{ text: string; delay?: number; isCommand?: boolean; showInitialBlink?: boolean }> = React.memo(({ text, delay = 0, isCommand = false, showInitialBlink = false }) => {
@@ -48,8 +49,8 @@ const AboutSection: React.FC = () => {
   // Use a ref to store the last calculated delay for the final prompt
   const finalPromptCalculatedDelayRef = useRef(baseDelay);
 
-  const name = "John Doe"; // Your name
-  const photoUrl = "/profile.jpg"; // Path to your profile picture
+  const name = "YadhuKrishnna T M"; // Your name
+  const photoUrl = "public/images/yadhu.jpeg"; // Path to your profile picture
   const subtitle = "Web Developer & Mobile Developer"; // Your subtitle
 
   useEffect(() => {
@@ -92,18 +93,27 @@ const AboutSection: React.FC = () => {
     addLine(`${name} - ${subtitle}`);
 
     addLine(prompt + 'cat about.txt', true);
-    addLine('Hello! I\'m John Doe, a passionate Frontend Developer with a knack for creating dynamic and intuitive user interfaces. With 5 years of experience, I specialize in crafting engaging web applications using modern JavaScript frameworks and libraries.');
-    addLine('My expertise lies in React, TypeScript, and Tailwind CSS, allowing me to build robust, scalable, and visually appealing web solutions. I\'m always eager to learn new technologies and improve my skills to deliver the best possible user experience.');
-
+    addLine(`• Hello! I'm YadhuKrishna T M, a Dynamic Computer Science Engineer and versatile Full-Stack Developer.
+• Expertise in building seamless mobile and web applications.
+• Combines a problem-solving mindset with a deep understanding of software architecture.
+• Aims to deliver high-performance, scalable solutions in a cross-functional environment.
+• Committed to continuous learning through real-world challenges to drive digital innovation and create impactful user experiences.
+• My expertise lies in React, TypeScript, Tailwind CSS, Next.js, and Flutter.
+• Always eager to learn new technologies and improve skills to deliver the best possible user experience.`);
     addLine(prompt + 'ls -F skills/', true);
     addLine(`./React.js/
 ./TypeScript/
 ./JavaScript_(ES6+)/
 ./Tailwind_CSS/
 ./HTML5_&_CSS3/
-./Node.js/
+./Next.js/
 ./Git_&_GitHub/
-./Responsive_Design/`);
+./Responsive_Design/
+./Flutter/
+./Dart/
+./Firebase/
+./Supabase/
+./Kotlin/`);
 
     addLine(prompt + 'cd projects', true);
     addLine('You can find more details in the projects directory.');
@@ -111,8 +121,8 @@ const AboutSection: React.FC = () => {
 
     addLine(prompt + 'cat contact.txt', true);
     addLine('Feel free to reach out via:');
-    addLine(`Email: your.email@example.com
-WhatsApp: 123-456-7890`);
+    addLine(`Email: yadhuthiyakkat@gmail.com
+WhatsApp: +91 9778256341`);
 
     setContentLines(generatedLines);
     finalPromptCalculatedDelayRef.current = currentDelay; // Store the final calculated delay
@@ -137,6 +147,14 @@ WhatsApp: 123-456-7890`);
             {prompt} Press <span className="font-bold text-[#E95420]">ENTER</span> to view my details
             <span className="animate-blink">█</span>
           </div>
+          <div className="mt-8">
+            <Button
+              asLink
+              href="https://drive.google.com/file/d/1npwSZqG9qwIFlq-ylmGy6gv1jHZynT7E/view?usp=drive_link" // Link to local resume.pdf in the public folder
+              target="_blank"
+              variant="secondary"
+            >Download Resume</Button>
+          </div>
         </div>
       )}
 
@@ -149,6 +167,14 @@ WhatsApp: 123-456-7890`);
           <div className="mt-4">
             {/* Pass the delay to the final prompt as well */}
             <TerminalLine text={prompt} isCommand={true} delay={finalPromptCalculatedDelayRef.current + 150} showInitialBlink={true} />
+          </div>
+          <div className="mt-8">
+            <Button
+              asLink
+                href="/resume.pdf" // Link to local resume.pdf in the public folder
+              target="_blank"
+              variant="secondary"
+            >Download Resume</Button>
           </div>
         </div>
       )}
