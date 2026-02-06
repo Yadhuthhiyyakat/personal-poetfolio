@@ -1,11 +1,17 @@
 
 import React, { useState, useEffect } from 'react';
-import Layout from './app/layout';
+import LinuxLayout from './app/LinuxLayout'; // Renamed from Layout
+import ProfessionalLayout from './app/ProfessionalLayout'; // New professional layout
 import HomePage from './app/HomePage';
 import AboutPage from './app/AboutPage';
 import ProjectsPage from './app/ProjectsPage';
 import ContactPage from './app/ContactPage';
-// ProjectDetailPage is no longer directly routed as its functionality is integrated into ProjectsPage
+import ProfessionalHomePage from './app/ProfessionalHomePage'; // New
+import ProfessionalAboutPage from './app/ProfessionalAboutPage'; // New
+import ProfessionalProjectsPage from './app/ProfessionalProjectsPage'; // New
+import ProfessionalContactPage from './app/ProfessionalContactPage'; // New
+import LockScreen from './components/LockScreen';
+import ViewSelectionScreen from './components/ViewSelectionScreen'; // NEW: Import ViewSelectionScreen
 
 // Define a more robust route type that can include a projectId
 type AppRoute =
@@ -28,10 +34,17 @@ const getPageFromHash = (): AppRoute => {
   return { type: 'home' };
 };
 
-import LockScreen from './components/LockScreen'; // Import the new LockScreen component
 const App: React.FC = () => {
   const [currentRoute, setCurrentRoute] = useState<AppRoute>(getPageFromHash());
-  const [showLockScreen, setShowLockScreen] = useState(true); // State to control lock screen visibility
+  const [isUnlocked, setIsUnlocked] = useState(false); // Initial unlock from LockScreen (ENTER)
+
+  // Initialize currentView from localStorage or default to 'linux'
+  const initialView = (localStorage.getItem('currentView') as 'linux' | 'professional') || 'linux';
+  const [currentView, setCurrentView] = useState<'linux' | 'professional'>(initialView);
+
+  // Determine if a view has been previously selected (persisted in localStorage)
+  // This helps skip the ViewSelectionScreen on subsequent visits after initial unlock
+  const [hasMadeViewSelection, setHasMadeViewSelection] = useState(false);
 
   useEffect(() => {
     const handleHashChange = () => {
@@ -45,40 +58,85 @@ const App: React.FC = () => {
   }, []);
 
   const handleUnlock = () => {
-    setShowLockScreen(false);
+    setIsUnlocked(true);
   };
 
-  const renderMainApp = () => {
-    switch (currentRoute.type) {
-      case 'about':
-        return <AboutPage />;
-      case 'projects':
-        // ProjectsPage now handles displaying project details based on projectId
-        return <ProjectsPage projectId={currentRoute.projectId} />;
-      case 'contact':
-        return <ContactPage />;
-      case 'home':
-      default:
-        return <HomePage />;
-    }
+  const handleSelectView = (view: 'linux' | 'professional') => {
+    setCurrentView(view);
+    localStorage.setItem('currentView', view); // Persist user's choice
+    setHasMadeViewSelection(true); // Mark that a choice has been made
   };
 
-  return (
-    <>
-      {showLockScreen ? (
+  const toggleView = () => {
+    setCurrentView(prev => {
+      const newView = prev === 'linux' ? 'professional' : 'linux';
+      localStorage.setItem('currentView', newView); // Persist the switch
+      // If switching, it means a selection has already been made
+      if (!hasMadeViewSelection) {
+        setHasMadeViewSelection(true);
+      }
+      return newView;
+    });
+  };
+
+  // Define personal details for LockScreen and ViewSelectionScreen
+  const userName = "John Doe";
+  const userPhotoUrl = "/profile.jpg";
+  const userSubtitle = "Web Developer & Mobile Developer";
+
+  const renderContent = () => {
+    // Stage 1: Initial Lock Screen (always shown first if not unlocked)
+    if (!isUnlocked) {
+      return (
         <LockScreen
           onUnlock={handleUnlock}
-          name="YadhuKrishna T M" // Replace with your name
-          photoUrl="/images/yadhu.jpeg" // Path to your profile picture
-          subtitle="Web Developer & Mobile Developer"
+          name={userName}
+          photoUrl={userPhotoUrl}
+          subtitle={userSubtitle}
         />
-      ) : (
-        <Layout>
-          {renderMainApp()}
-        </Layout>
-      )}
-    </>
-  );
+      );
+    }
+
+    // Stage 2: View Selection Screen (shown after unlock if no view has been chosen yet)
+    if (!hasMadeViewSelection) {
+      return (
+        <ViewSelectionScreen
+          onSelectView={handleSelectView}
+          name={userName}
+          photoUrl={userPhotoUrl}
+          subtitle={userSubtitle}
+        />
+      );
+    }
+
+    // Stage 3: Main content with selected layout
+    const LayoutComponent = currentView === 'linux' ? LinuxLayout : ProfessionalLayout;
+
+    let pageContent;
+    switch (currentRoute.type) {
+      case 'about':
+        pageContent = currentView === 'linux' ? <AboutPage /> : <ProfessionalAboutPage />;
+        break;
+      case 'projects':
+        pageContent = currentView === 'linux' ? <ProjectsPage projectId={currentRoute.projectId} /> : <ProfessionalProjectsPage projectId={currentRoute.projectId} />;
+        break;
+      case 'contact':
+        pageContent = currentView === 'linux' ? <ContactPage /> : <ProfessionalContactPage />;
+        break;
+      case 'home':
+      default:
+        pageContent = currentView === 'linux' ? <HomePage /> : <ProfessionalHomePage />;
+        break;
+    }
+
+    return (
+      <LayoutComponent toggleView={toggleView} currentView={currentView}>
+        {pageContent}
+      </LayoutComponent>
+    );
+  };
+
+  return <>{renderContent()}</>;
 };
 
 export default App;

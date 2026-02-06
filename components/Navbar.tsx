@@ -1,11 +1,14 @@
 // /home/yadhukrishna-t-m/Nextprojects/personal-portfolio-ubuntu/components/Navbar.tsx
 import React, { useState, useEffect } from 'react';
+import Button from './Button';
 
 interface NavbarProps {
   iconSrc?: string; // Added iconSrc prop
+  toggleView: () => void;
+  currentView: 'linux' | 'professional';
 }
 
-const Navbar: React.FC<NavbarProps> = ({ iconSrc }) => {
+const Navbar: React.FC<NavbarProps> = ({ iconSrc, toggleView, currentView }) => {
   const [currentTime, setCurrentTime] = useState('');
   const [currentDate, setCurrentDate] = useState('');
 
@@ -32,8 +35,17 @@ const Navbar: React.FC<NavbarProps> = ({ iconSrc }) => {
         <span className="text-xs">{currentDate}</span>
         <span className="text-xs">{currentTime}</span>
       </div>
-      {/* Empty div to balance the grid and push the middle content to the center */}
-      <div></div>
+      {/* Right-aligned content: View Toggle Button */}
+      <div className="flex items-center justify-end">
+        <Button
+          onClick={toggleView}
+          variant="secondary"
+          size="sm"
+          aria-label={`Switch to ${currentView === 'linux' ? 'Professional' : 'Linux'} View`}
+        >
+          Switch to {currentView === 'linux' ? 'Professional' : 'Linux'}
+        </Button>
+      </div>
     </nav>
   );
 };

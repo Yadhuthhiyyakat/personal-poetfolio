@@ -1,10 +1,36 @@
-
 import React, { useState, useEffect, useRef } from 'react';
-// Use React.memo for performance optimization
-const TerminalLine: React.FC<{ text: string; delay?: number; isCommand?: boolean; showInitialBlink?: boolean }> = React.memo(({ text, isCommand = false, showInitialBlink = false }) => {
-  // All animation logic (useState, useEffect, useRef for timers) has been removed.
-  // The component now simply renders the full text immediately.
 
+// Use React.memo for performance optimization
+const TerminalLine: React.FC<{ text: string; delay?: number; isCommand?: boolean; showInitialBlink?: boolean }> = React.memo(({ text, delay = 0, isCommand = false, showInitialBlink = false }) => {
+  const [shouldDisplay, setShouldDisplay] = useState(false); // Controls when the text appears
+  const timeoutRef = useRef<number | null>(null); // Ref to hold the timeout ID for cleanup
+
+  useEffect(() => {
+    // Clear any existing timeout if props change or component unmounts
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+    }
+
+    setShouldDisplay(false); // Reset display state when text or delay changes
+
+    // Set a new timeout to display the text after the specified delay
+    timeoutRef.current = window.setTimeout(() => {
+      setShouldDisplay(true);
+    }, delay);
+
+    // Cleanup function: clear the timeout if the component unmounts or effect re-runs
+    return () => {
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
+    };
+  }, [text, delay]); // Dependencies: re-run effect if text or delay changes
+
+  if (!shouldDisplay) {
+    return null; // Don't render anything until the delay is over
+  }
+
+  // Render the full text instantly once shouldDisplay is true
   return (
     <p className={`whitespace-pre-wrap ${isCommand ? 'text-cyan-400' : 'text-green-400'}`}>
       {text}
@@ -15,14 +41,15 @@ const TerminalLine: React.FC<{ text: string; delay?: number; isCommand?: boolean
 
 const AboutSection: React.FC = () => {
   const [hasUnlocked, setHasUnlocked] = useState(false);
+  // Re-added delay to the type definition for contentLines
   const [contentLines, setContentLines] = useState<Array<{ text: string; isCommand?: boolean; delay?: number; showInitialBlink?: boolean }>>([]);
-  const prompt = 'yadhukrishna-t-m@ubuntu-portfolio:~$ ';
+  const prompt = 'user@ubuntu-portfolio:~$ ';
   const baseDelay = 500;
   // Use a ref to store the last calculated delay for the final prompt
-  const finalPromptCalculatedDelayRef = useRef(baseDelay); // This ref is now technically unused but kept for compatibility if animation were to be re-introduced
+  const finalPromptCalculatedDelayRef = useRef(baseDelay);
 
-  const name = "YadhuKrishna T M"; // Your name
-  const photoUrl = "/images/yadhu.jpeg"; // Path to your profile picture
+  const name = "John Doe"; // Your name
+  const photoUrl = "/profile.jpg"; // Path to your profile picture
   const subtitle = "Web Developer & Mobile Developer"; // Your subtitle
 
   useEffect(() => {
@@ -49,12 +76,15 @@ const AboutSection: React.FC = () => {
         return;
     }
 
-    let currentDelay = baseDelay; // This delay is now largely irrelevant for static display
+    let currentDelay = baseDelay;
+    // Re-added delay to the type definition for generatedLines
     const generatedLines: Array<{ text: string; isCommand?: boolean; delay?: number }> = [];
 
     const addLine = (text: string, isCommand: boolean = false) => {
+      // Pass the currentDelay with the line data
       generatedLines.push({ text, isCommand, delay: currentDelay });
-      currentDelay += text.length * 30 + 500; // Original delay calculation, now just for reference
+      // Drastically reduced delay for a snappier terminal feel
+      currentDelay += 150; // A fixed small delay between lines
     };
 
     // Simulate terminal commands and output
@@ -62,8 +92,8 @@ const AboutSection: React.FC = () => {
     addLine(`${name} - ${subtitle}`);
 
     addLine(prompt + 'cat about.txt', true);
-    addLine('Hello! I\'m YadhuKrishna T M, I am a versatile Full-Stack Developer and Computer Science Engineer specializing in building comprehensive digital solutions across web and mobile platforms. I focus on creating seamless, high-performance applications by bridging the gap between intuitive user interfaces—both in the browser and on handheld devices—and scalable backend architecture.');
-    addLine('My expertise lies in React, TypeScript, and Tailwind CSS for web solutions, alongside Flutter and Kotlin for mobile development, allowing me to build robust, scalable, and visually appealing applications across all platforms. I\'m always eager to learn new technologies and improve my skills to deliver the best possible user experience.');
+    addLine('Hello! I\'m John Doe, a passionate Frontend Developer with a knack for creating dynamic and intuitive user interfaces. With 5 years of experience, I specialize in crafting engaging web applications using modern JavaScript frameworks and libraries.');
+    addLine('My expertise lies in React, TypeScript, and Tailwind CSS, allowing me to build robust, scalable, and visually appealing web solutions. I\'m always eager to learn new technologies and improve my skills to deliver the best possible user experience.');
 
     addLine(prompt + 'ls -F skills/', true);
     addLine(`./React.js/
@@ -71,11 +101,9 @@ const AboutSection: React.FC = () => {
 ./JavaScript_(ES6+)/
 ./Tailwind_CSS/
 ./HTML5_&_CSS3/
-./Next.js/
+./Node.js/
 ./Git_&_GitHub/
-./Responsive_Design/
-./Kotlin/
-./Flutter/`);
+./Responsive_Design/`);
 
     addLine(prompt + 'cd projects', true);
     addLine('You can find more details in the projects directory.');
@@ -83,11 +111,8 @@ const AboutSection: React.FC = () => {
 
     addLine(prompt + 'cat contact.txt', true);
     addLine('Feel free to reach out via:');
-    addLine(`Email: yadhuthiyakkat@gmail.com
-WhatsApp: +91 9778256341
-Phone: +91 9778256341,+91 9497296976
-GitHub: https://github.com/Yadhuthhiyyakat
-LinkedIn: https://www.linkedin.com/in/yadhukrishna-tm-8b179b330/`);
+    addLine(`Email: your.email@example.com
+WhatsApp: 123-456-7890`);
 
     setContentLines(generatedLines);
     finalPromptCalculatedDelayRef.current = currentDelay; // Store the final calculated delay
@@ -95,8 +120,8 @@ LinkedIn: https://www.linkedin.com/in/yadhukrishna-tm-8b179b330/`);
 
   return (
     <div className="bg-gray-900 text-green-400 font-mono text-sm p-4 h-full overflow-y-auto rounded-b-xl relative">
-      {!hasUnlocked && ( // This entire block acts as the "lock screen" for the About section
-        <div className="flex flex-col items-center justify-center h-full text-center p-4 sm:p-8">
+      {!hasUnlocked && (
+        <div className="flex flex-col items-center justify-center h-full text-center p-4">
           <img
             src={photoUrl}
             alt={name}
@@ -108,11 +133,8 @@ LinkedIn: https://www.linkedin.com/in/yadhukrishna-tm-8b179b330/`);
           <p className="text-lg font-light text-gray-300 mb-6">
             {subtitle}
           </p>
-          <div
-            className="text-lg md:text-xl text-gray-300 font-medium tracking-wide cursor-pointer"
-            onClick={() => setHasUnlocked(true)} // Unlock on click/tap
-          >
-            {prompt} Press <span className="font-bold text-[#E95420]">ENTER</span> or <span className="font-bold text-[#E95420]">TAP</span> to view my details
+          <div className="text-lg md:text-xl text-gray-300 font-medium tracking-wide">
+            {prompt} Press <span className="font-bold text-[#E95420]">ENTER</span> to view my details
             <span className="animate-blink">█</span>
           </div>
         </div>
@@ -125,7 +147,8 @@ LinkedIn: https://www.linkedin.com/in/yadhukrishna-tm-8b179b330/`);
           ))}
           {/* Ensure a final prompt is shown and keeps blinking */}
           <div className="mt-4">
-            <TerminalLine text={prompt} isCommand={true} delay={finalPromptCalculatedDelayRef.current + 500} showInitialBlink={true} />
+            {/* Pass the delay to the final prompt as well */}
+            <TerminalLine text={prompt} isCommand={true} delay={finalPromptCalculatedDelayRef.current + 150} showInitialBlink={true} />
           </div>
         </div>
       )}
