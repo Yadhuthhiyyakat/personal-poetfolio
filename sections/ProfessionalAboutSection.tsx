@@ -4,8 +4,8 @@ import SectionHeading from '../components/SectionHeading';
 import Button from '../components/Button';
 
 const ProfessionalAboutSection: React.FC = () => {
-  const name = "John Doe"; // Your name
-  const photoUrl = "/profile.jpg"; // Path to your profile picture
+  const name = "YadhuKrishna T M"; // Your name
+  const photoUrl = "/images/yadhu.jpeg"; // Path to your profile picture
   const subtitle = "Web Developer & Mobile Developer"; // Your subtitle
 
   return (
