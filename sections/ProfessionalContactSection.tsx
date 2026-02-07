@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import SectionHeading from '../components/SectionHeading';
 import Button from '../components/Button';
+import emailjs from '@emailjs/browser';
 
 const ProfessionalContactSection: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -14,16 +15,31 @@ const ProfessionalContactSection: React.FC = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // In a real application, you would send this data to a backend or a service like Formspree
-    console.log('Form submitted:', formData);
-    alert('Thank you for your message! I will get back to you soon.');
-    setFormData({ name: '', email: '', message: '' }); // Clear form
+
+    // Replace with your actual EmailJS Service ID, Template ID, and Public Key
+    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+    const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
+    try {
+      await emailjs.send(serviceId, templateId, {
+        from_name: formData.name,
+        from_email: formData.email,
+        message: formData.message,
+      }, publicKey);
+
+      alert('Thank you for your message! I will get back to you soon.');
+      setFormData({ name: '', email: '', message: '' }); // Clear form
+    } catch (error) {
+      console.error('Failed to send message:', error);
+      alert('Failed to send message. Please try again later or contact me directly.');
+    }
   };
 
   const emailAddress = 'yadhuthiyakkat@gmail.com'; // Replace with your actual email
-  const whatsappNumber = '+91 9778256341'; // Replace with your actual WhatsApp number
+  const whatsappNumber = '9778256341'; // Replace with your actual WhatsApp number
 
   return (
     <section className="py-12 md:py-16 bg-white shadow-lg rounded-lg px-6">
@@ -104,7 +120,7 @@ const ProfessionalContactSection: React.FC = () => {
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-[#25D366]" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 20.895l1.455-5.344A9.998 9.998 0 0112 2C17.522 2 22 6.478 22 12s-4.478 10-10 10c-1.986 0-3.857-.611-5.42-1.666L.057 20.895zM12 20c4.411 0 8-3.589 8-8s-3.589-8-8-8-8 3.589-8 8c0 1.777.585 3.42 1.583 4.757L2 19.333l1.83-6.05A7.962 7.962 0 014 12c0-3.313 2.687-6 6-6s6 2.687 6 6-2.687 6-6 6zm-2-9h4c.552 0 1 .448 1 1s-.448 1-1 1h-4c-.552 0-1-.448-1-1s.448-1 1-1zm0 3h4c.552 0 1 .448 1 1s-.448 1-1 1h-4c-.552 0-1-.448-1-1s.448-1 1-1z"/></svg>
                 <div>
                   <p className="font-semibold text-gray-800">WhatsApp:</p>
-                  <a href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent("Hello John, I saw your portfolio and wanted to get in touch!")}`} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">{whatsappNumber}</a>
+                  <a href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent("Hello Yadhu, I saw your portfolio and wanted to get in touch!")}`} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">{whatsappNumber}</a>
                 </div>
               </div>
               {/* Add more social links if desired */}
