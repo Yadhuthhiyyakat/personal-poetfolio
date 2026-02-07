@@ -81,7 +81,7 @@ const App: React.FC = () => {
 
   // Define personal details for LockScreen and ViewSelectionScreen
   const userName = "YadhuKrishna T M"; // Change this to your desired name
-  const userPhotoUrl = "public/images/yadhu.jpeg"; // Update with the correct path to your profile image
+  const userPhotoUrl = "/images/yadhu.jpeg"; // Update with the correct path to your profile image
   const userSubtitle = "Web Developer & Mobile Developer"; // Customize your subtitle
 
   const renderContent = () => {
