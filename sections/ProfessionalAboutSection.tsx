@@ -23,12 +23,47 @@ const ProfessionalAboutSection: React.FC = () => {
           <p className="text-xl font-semibold text-gray-800 mb-4 animate-fade-in animate-once animate-delay-200 animate-duration-700">
             {name} - {subtitle}
           </p>
-          <p className="text-gray-700 text-lg leading-relaxed mb-6 animate-fade-in animate-once animate-delay-400 animate-duration-700">
-            Hello! I'm John Doe, a passionate Frontend Developer with a knack for creating dynamic and intuitive user interfaces. With 5 years of experience, I specialize in crafting engaging web applications using modern JavaScript frameworks and libraries.
-          </p>
-          <p className="text-gray-700 text-lg leading-relaxed animate-fade-in animate-once animate-delay-600 animate-duration-700">
-            My expertise lies in React, TypeScript, and Tailwind CSS, allowing me to build robust, scalable, and visually appealing web solutions. I'm always eager to learn new technologies and improve my skills to deliver the best possible user experience.
-          </p>
+          <ul className="text-gray-700 text-lg leading-relaxed mb-6 list-disc list-inside animate-fade-in animate-once animate-delay-400 animate-duration-700">
+            <li>Hello! I'm YadhuKrishna T M, a Dynamic Computer Science Engineer and versatile Full-Stack Developer.</li>
+            <li>Expertise in building seamless mobile and web applications.</li>
+            <li>Combines a problem-solving mindset with a deep understanding of software architecture.</li>
+            <li>Aims to deliver high-performance, scalable solutions in a cross-functional environment.</li>
+            <li>Committed to continuous learning through real-world challenges to drive digital innovation and create impactful user experiences.</li>
+            <li>My expertise lies in React, TypeScript, Tailwind CSS, Next.js, and Flutter.</li>
+            <li>Always eager to learn new technologies and improve skills to deliver the best possible user experience.</li>
+          </ul>
+          {/* New Tech Stack Section */}
+          <div className="mt-12">
+            <h3 className="text-2xl font-bold text-gray-900 mb-6 animate-fade-in animate-once animate-delay-600 animate-duration-700">
+              My <span className="text-[#E95420]">Tech Stack</span>
+            </h3>
+            <div className="flex flex-wrap justify-center md:justify-start gap-4">
+              {[
+                "React",
+                "TypeScript",
+                "Tailwind CSS",
+                "Next.js",
+                "Flutter",
+                "Firebase",
+                "Supabase",
+                "Kotlin",
+                "JavaScript (ES6+)",
+                "HTML5 & CSS3",
+                "Git & GitHub",
+                "Responsive Design",
+                "Dart",
+              ].map((tech, index) => (
+                <span
+                  key={tech}
+                  className="px-5 py-2 bg-gray-100 text-gray-800 rounded-full shadow-md hover:bg-[#E95420] hover:text-white transition-all duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105
+                             animate-fade-in animate-once"
+                  style={{ animationDelay: `${index * 100 + 1000}ms` }} // Staggered animation
+                >
+                  {tech}
+                </span>
+              ))}
+            </div>
+          </div>
           <div className="mt-8 flex justify-center md:justify-start animate-fade-in animate-once animate-delay-800 animate-duration-700">
             <Button
               asLink

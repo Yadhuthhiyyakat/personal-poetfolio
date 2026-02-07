@@ -45,7 +45,7 @@ const ViewSelectionScreen: React.FC<ViewSelectionScreenProps> = ({ onSelectView,
                        focus:outline-none focus:ring-4 focus:ring-orange-500 focus:ring-opacity-75 text-lg font-semibold"
             aria-label="Enter Developer Mode (Ubuntu UI)"
           >
-            Developer Mode (Ubuntu UI)
+            Developer Mode 
           </button>
           <button
             onClick={() => onSelectView('professional')}
@@ -53,7 +53,7 @@ const ViewSelectionScreen: React.FC<ViewSelectionScreenProps> = ({ onSelectView,
                        focus:outline-none focus:ring-4 focus:ring-blue-500 focus:ring-opacity-75 text-lg font-semibold"
             aria-label="Enter Client Mode (Simple UI)"
           >
-            Client Mode (Simple UI)
+            Client Mode 
           </button>
         </div>
       </div>

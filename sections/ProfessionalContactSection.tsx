@@ -22,8 +22,8 @@ const ProfessionalContactSection: React.FC = () => {
     setFormData({ name: '', email: '', message: '' }); // Clear form
   };
 
-  const emailAddress = 'your.email@example.com'; // Replace with your actual email
-  const whatsappNumber = '1234567890'; // Replace with your actual WhatsApp number
+  const emailAddress = 'yadhuthiyakkat@gmail.com'; // Replace with your actual email
+  const whatsappNumber = '+91 9778256341'; // Replace with your actual WhatsApp number
 
   return (
     <section className="py-12 md:py-16 bg-white shadow-lg rounded-lg px-6">
