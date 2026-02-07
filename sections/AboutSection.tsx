@@ -50,7 +50,7 @@ const AboutSection: React.FC = () => {
   const finalPromptCalculatedDelayRef = useRef(baseDelay);
 
   const name = "YadhuKrishnna T M"; // Your name
-  const photoUrl = "public/images/yadhu.jpeg"; // Path to your profile picture
+  const photoUrl = "/images/yadhu.jpeg"; // Path to your profile picture
   const subtitle = "Web Developer & Mobile Developer"; // Your subtitle
 
   useEffect(() => {
